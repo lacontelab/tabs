@@ -1,0 +1,13 @@
+# vim swap files
+*.swp
+*.swo
+
+archive/
+archive
+
+# directories
+data/
+dicom/
+log/
+simulation/input/
+

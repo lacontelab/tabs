@@ -18,7 +18,7 @@ Scripts to simulate and run realtime fMRI experiments for neurofeedback.
 ### FSL (tested: version 5.0)
 - For alignment, preprocessing, etc.
 
-### FREESURFER (tested with: freesurfer-linux-centos7_x86_64-7.4.0-20230510-e558e6e)
+### FREESURFER (tested: freesurfer-linux-centos7_x86_64-7.4.0-20230510-e558e6e)
 - For skull stripping.
 
 ## Configure TABS
