@@ -1,6 +1,6 @@
 # Temporarily Adaptive Brain State (TABS)
 
-Scripts to simulate and run real-time fMRI experiments for neurofeedback.
+Scripts to simulate and run realtime fMRI experiments for neurofeedback.
 
 ## Software Requirements
 
