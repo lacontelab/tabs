@@ -10,7 +10,7 @@ Scripts to simulate and run realtime fMRI experiments for neurofeedback.
 - For visualization.
 
 ### DCMTK
-- For receiving structural DICOMs at the beginning of the session:
+- For receiving DICOMs at the beginning of the session:
   - To archive old data.
   - To start up AFNI.
   - To run processing of structural data based on DICOM header entries.
