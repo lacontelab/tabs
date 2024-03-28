@@ -41,5 +41,3 @@ done
 if [ -z "${response}" ]; then
   echo "${LID}: ERROR: plugout_dirve -maxwait 2 $@ failed!"
 fi
-
-exit 1

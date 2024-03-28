@@ -87,7 +87,7 @@ if [ $rest_processing -eq 1 ]; then
   run_command "$command"
 fi
 
-# feedback EOI processing #########################################################
+# feedback EPI processing #########################################################
 if [ $feedback_processing -eq 1 ]; then
   # execute feedback setup script (define preprocessing, connect to stimulus)
   command="tabs_process_test_pre+rsn_test.sh > ${TABS_PATH}/log/tabs_process_test_pre+rsn_test.log 2>&1"
