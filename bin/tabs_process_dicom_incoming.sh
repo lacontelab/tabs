@@ -137,7 +137,7 @@ if [ -f ${pidfile} ]; then
     pgid=$(ps opgid= "$pid" | tr -d ' ')
 
     if [ -z "${pgid}" ]; then
-      echo "${LID}: WARNING: Retriving process group id failed!"
+      echo "${LID}: WARNING: Retrieving process group id failed!"
       echo "${LID}: WARNING: Killing ${hook_script_basename} with with PID: ${pid}"
       echo "${LID}: WARNING: Killing ${hook_script_basename} with with PID: ${pid}" >> $logfile
       kill -9 ${pid}
@@ -159,7 +159,7 @@ if [ -f $hook_script ]; then
 
   setsid $hook_script $DICOM_DIR > $logfile 2>&1 &
   
-  # record pid and wait until processing complete 
+  # record pid 
   echo $! > ${pidfile}
 
 else

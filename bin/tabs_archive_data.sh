@@ -26,7 +26,7 @@ if [ -d "${TABS_PATH}/data" ]; then
   echo "${LID}: INFO: Archiving imaging data in: ${TABS_PATH}/data"
 
   # get a file with imaging data
-  file=$(find ${TABS_PATH}/data/ -type f \( -name '*.HEAD' -o -name '*.nii*' \) -print -quit)
+  file=$(find ${TABS_PATH}/data/ -type f \( -name '*.HEAD' -o -name '*.nii' \) -print -quit 2>/dev/null)
 
   if [ -z "${file}" ]; then
     echo "${LID}: WARNING: No data in ${TABS_PATH}/data/ found!"
@@ -49,13 +49,14 @@ fi
 # kill all processes but storescp
 # TODO: This is tricky if name of pid file of storescp changes
 pid_files=$(find ${TABS_PATH}/log/ -type f -name '*.pid' ! -name 'storescp.pid')
-echo DBG: $pid_files
 
-# now kill all the processes with pid files
+# now kill all the processes with pid files if they are still running
 for pid_file in $pid_files; do
   pid=$(cat $pid_file)
-  echo "${LID}: INFO: Killing process with pid: $pid"
-  kill -9 $pid
+  if ps -p $pid > /dev/null; then
+    echo "${LID}: INFO: Killing process with pid: $pid"
+    kill -9 $pid
+  fi
   rm $pid_file
 done
 
@@ -71,6 +72,6 @@ if [ ! -z "${archive_dir}" ]; then
   done
 
   # copy (do not move) storescp log
-  # TODO: Append timesamp to storescp.log. Tricky since am not sure how storescp writes to the log
+  # TODO: Append timestamp to storescp.log. Tricky since am not sure how storescp writes to the log
   cp ${TABS_PATH}/log/storescp.log  ${archive_dir}/logs/.
 fi
