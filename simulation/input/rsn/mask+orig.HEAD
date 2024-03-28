@@ -1,0 +1,140 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 82
+'[jlisinski@fortis: Thu Mar 14 10:42:11 2024] 3dTcat -prefix mask 'rest+orig[0-2]'~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_ANAT~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_vlPrfQBnT-cP9G5x_EeTHg~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Thu Mar 14 10:42:11 2024~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 0 2 0 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 5
+'zyxt~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 5
+'zyxt~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 0 3 4
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+           -110      -139.6868      -27.60096
+
+type  = float-attribute
+name  = DELTA
+count = 3
+         3.4375         3.4375           3.96
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+         3.4375              0              0           -110              0
+         3.4375              0      -139.6868              0              0
+           3.96      -27.60096
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+         3.4375              0              0           -110              0
+         3.4375              0      -139.6868              0              0
+           3.96      -27.60096
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 6
+              0           2074              0           2006              0
+           1991
+
+type = integer-attribute
+name = TAXIS_NUMS
+count = 8
+ 3 33 77002 -999 -999
+ -999 -999 -999
+
+type  = float-attribute
+name  = TAXIS_FLOATS
+count = 8
+              0              2              0      -27.60096           3.96
+        -999999        -999999        -999999
+
+type  = float-attribute
+name  = TAXIS_OFFSETS
+count = 33
+              0     0.06060606      0.1212121      0.1818182      0.2424242
+      0.3030303      0.3636363      0.4242424      0.4848484      0.5454545
+      0.6060606      0.6666667      0.7272727      0.7878789      0.8484849
+       0.909091      0.9696971       1.030303       1.090909       1.151515
+       1.212121       1.272727       1.333333        1.39394       1.454546
+       1.515152       1.575758       1.636364        1.69697       1.757576
+       1.818182       1.878788       1.939394
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 3 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 64 64 33 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 3
+ 1 1 1
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 3
+              0              0              0
+
+type = string-attribute
+name = BRICK_LABS
+count = 9
+'#0~#1~#2~
+
+type = string-attribute
+name = TEMPLATE_SPACE
+count = 5
+'ORIG~
+
+type = integer-attribute
+name = INT_CMAP
+count = 1
+ 0
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'LSB_FIRST~
