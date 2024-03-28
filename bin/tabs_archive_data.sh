@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-#  moves content of ${TABS_PATH}/data to a time-stampted direcotry 
+#  moves content of ${TABS_PATH}/data to a time-stamped directory 
 #  in $TABS_PATH/archive
 #  kills all processes wit pids stored in ${TABS_PATH}/log BUT storescp
 #  archives all log files in $TABS_PATH/log

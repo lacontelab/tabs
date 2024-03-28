@@ -4,6 +4,18 @@
 # Start DCMTK's storescp for receiving DICOM data
 # 
 
+# default args
+stop=0
+
+# check args
+if [ ! -z "$@" ]; then
+  for arg in "$@"; do
+    if [[ "$arg" == "-stop" ]]; then
+      stop=1
+    fi
+  done
+fi
+
 # source tabs environment
 tabs_cfg_host_file=$(dirname $0)/../tabs_env_$(hostname).cfg
 tabs_cfg_file=$(dirname $0)/../tabs_env.cfg
@@ -29,18 +41,34 @@ prefix=sorted
 timeoutsec=2
 
 if [ -z "${storescp}" ]; then
-  echo "${LID}: storescp not installed or in PATH"
+  echo "${LID}: ERROR: storescp not installed or in PATH"
   exit 1
 fi
 
 logfile=${TABS_PATH}/log/${prog}.log
 pidfile=${TABS_PATH}/log/${prog}.pid
 
-# Check if storescp is already running
-if [ -f $pidfile ]; then
-  if [ "$(ps -p $(cat $pidfile) -o comm=)" == "$prog" ]; then
-     echo "${LID}: storescp already running with PID: $(cat $pidfile)"
-     exit 1
+# top storescp if desired
+if [ $stop -eq 1 ]; then
+  if [ -f $pidfile ]; then
+    if [ "$(ps -p $(cat $pidfile) -o comm=)" == "$prog" ]; then
+      echo "${LID}: INFO: Killing storescp with PID: $(cat $pidfile)"
+      kill -9 $(cat $pidfile)
+      exit 0
+    else
+      echo "${LID}: WARNING: storescp with PID: $(cat $pidfile) not running"
+      exit 0
+    fi
+  fi
+
+  echo "${LID}: WARNING: No process file: $pidfile) found"
+  exit 0
+else
+  if [ -f $pidfile ]; then
+    if [ "$(ps -p $(cat $pidfile) -o comm=)" == "$prog" ]; then
+      echo "${LID}: storescp already running with PID: $(cat $pidfile)"
+      exit 0
+    fi
   fi
 fi
 
@@ -61,7 +89,7 @@ ${storescp} \
 echo $! > ${pidfile}
 
 if [ "$(ps -p $(cat $pidfile) -o comm=)" == "$prog" ]; then
-  echo "${LID}: storescp sucssfullly started with PID: $(cat $pidfile)"
+  echo "${LID}: storescp successfully started with PID: $(cat $pidfile)"
 fi
 
 exit 0
