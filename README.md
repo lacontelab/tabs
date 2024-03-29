@@ -4,7 +4,7 @@ Scripts to simulate and run realtime fMRI experiments for neurofeedback.
 
 ## Software Requirements
 
-### AFNI (tested: commit: c8444f5fe3c4c33825c07c19279dddda151501f5)
+### AFNI (tested: AFNI_24.0.18)
 - For receiving and processing of EPI data.
 - For sending neurofeedback data over TCP/IP.
 - For visualization.

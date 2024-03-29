@@ -123,7 +123,6 @@ flirt -ref ${anat} -in ${name_nii} -dof 6 \
   -cost bbr -wmseg ${wm_mask_nii} -init rm_mk_init.mat \
   -omat ${epi_anat_xform} -schedule ${FSLDIR}/etc/flirtsch/bbr.sch
 
-#older version of flirt: -cost bbr
 echo "${LID}: INFO: Invert linear transfrom"
 anat_epi_xform=rm_anat_2_epi_xform.mat
 convert_xfm -omat ${anat_epi_xform} \
