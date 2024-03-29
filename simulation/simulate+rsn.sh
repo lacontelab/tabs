@@ -100,3 +100,10 @@ if [ $feedback_processing -eq 1 ]; then
   echo ":: About to send EPI feedback data:"
   run_command "$command"
 fi
+
+# stop dicomserver ################################################################
+echo ":: Processing done!"
+echo ":: Stopping dicom server: "
+command="tabs_start_dicomserver.sh -stop"
+run_command "$command"
+echo ":: Done!"
