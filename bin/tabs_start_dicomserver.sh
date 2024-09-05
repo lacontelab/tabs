@@ -5,13 +5,13 @@
 # 
 
 # default args
-stop=0
+kill=0
 
 # check args
 if [ ! -z "$@" ]; then
   for arg in "$@"; do
-    if [[ "$arg" == "-stop" ]]; then
-      stop=1
+    if [[ "$arg" == "-kill" ]]; then
+      kill=1
     fi
   done
 fi
@@ -48,8 +48,8 @@ fi
 logfile=${TABS_PATH}/log/${prog}.log
 pidfile=${TABS_PATH}/log/${prog}.pid
 
-# top storescp if desired
-if [ $stop -eq 1 ]; then
+# stop storescp if desired
+if [ $kill -eq 1 ]; then
   if [ -f $pidfile ]; then
     if [ "$(ps -p $(cat $pidfile) -o comm=)" == "$prog" ]; then
       echo "${LID}: INFO: Killing storescp with PID: $(cat $pidfile)"

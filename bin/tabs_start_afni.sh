@@ -1,7 +1,21 @@
+#!/bin/bash
+
 #
 # start afni controller window A and B
-# if afni is running with logged pid, kill if first
+# if afni is running with logged pid, kill if first 
+# kill afni only if arg -kill is passed
 #
+# default args
+kill=0
+
+# check args
+if [ ! -z "$@" ]; then
+  for arg in "$@"; do
+    if [[ "$arg" == "-kill" ]]; then
+      kill=1
+    fi
+  done
+fi
 
 # source tabs environment 
 tabs_cfg_host_file=$(dirname $0)/../tabs_env_$(hostname).cfg
@@ -28,12 +42,17 @@ cd ${TABS_PATH}/data
 if [ -f ${pidfile} ]; then
   pid=$(cat ${pidfile})
   if [ "$(ps -p ${pid} -o comm=)" == "afni" ]; then
-    echo ${LID}: INFO: afni is already running. Killing it
+    echo ${LID}: INFO: Killing afni with PID: ${pid}
     kill -9 ${pid}
   fi
 fi
 
-# keep track of which afni binary is exectued in logfile
+# exit and don't start afni if -kill option is set
+if [ $kill -eq 1 ]; then
+  exit 0
+fi
+
+# keep track of which afni binary is executed in logfile
 # TODO: Loosing log if afni is restarted within session
 which afni > $logfile
 

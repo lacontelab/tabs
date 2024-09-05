@@ -1,0 +1,5 @@
+build/
+dist/
+
+tabsUI.spec
+__pycache__/
