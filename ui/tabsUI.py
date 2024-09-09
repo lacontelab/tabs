@@ -21,8 +21,6 @@ base_path = os.path.join(os.getcwd())
 # Load tabs environment variables
 # assuming cfg resides in the directory from which script is called
 hostname = os.popen('hostname').read().strip()
-tabs_cfg_host_file = os.path.join(base_path, f"tabs_env_{hostname}.cfg")
-tabs_cfg_file = os.path.join(base_path, f"tabs_env.cfg")
 
 # Load tabs environment variables
 ui_utils.load_env(tabs_cfg_host_file=os.path.join(base_path, f"tabs_env_{hostname}.cfg"),
