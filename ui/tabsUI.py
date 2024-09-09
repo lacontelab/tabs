@@ -25,18 +25,8 @@ tabs_cfg_host_file = os.path.join(base_path, f"tabs_env_{hostname}.cfg")
 tabs_cfg_file = os.path.join(base_path, f"tabs_env.cfg")
 
 # Load tabs environment variables
-def load_env():
-    if os.path.exists(tabs_cfg_host_file):
-        env_file = tabs_cfg_host_file
-        ui_utils.load_env_vars(ui_utils.parse_env_file(env_file))
-    elif os.path.exists(tabs_cfg_file):
-        env_file = tabs_cfg_file
-        ui_utils.load_env_vars(ui_utils.parse_env_file(env_file))
-    else:
-        sg.PopupError(f"tabs environment file '{tabs_cfg_file}' does not exist!")
-        raise SystemExit(1)
-
-load_env()
+ui_utils.load_env(tabs_cfg_host_file=os.path.join(base_path, f"tabs_env_{hostname}.cfg"),
+ tabs_cfg_file=os.path.join(base_path, f"tabs_env.cfg"))
 
 # Define the common paths for scripts and logs
 script_path = os.path.join(os.environ.get('TABS_PATH'), 'bin')
